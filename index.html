@@ -16,6 +16,11 @@
         .addEventListener("click", function () {
           el.object3D.scale.multiplyScalar(0.9);
         });
+      document
+        .querySelector(".button__rotate")
+        .addEventListener("click", function () {
+          el.object3D.scale.multiplyScalar(0.9);
+        });
     };
   </script>
   <style>
@@ -39,26 +44,29 @@
       color: black;
       width: 4em;
       height: 2em;
+      margin: 1px;
     }
   </style>
   <body style="margin: 0px; overflow: hidden">
     <div class="buttons">
-      <button class="button button__buttonUp" title="increase image">+</button>
-      <button class="button button__buttonDown" title="reduce image">-</button>
+      <button class="button button__buttonUp" title="increase">+</button>
+      <button class="button button__buttonDown" title="reduce">-</button>
+      <button class="button button__rotate">rotate</button>
     </div>
 
     <a-scene>
-      <a-assets timeout="30000">
+      <a-assets>
         <a-asset-item id="tree-obj" src="./Table And Chairs.obj"></a-asset-item>
         <a-asset-item id="tree-mtl" src="./Table And Chairs.mtl"></a-asset-item>
       </a-assets>
-
-      <a-entity
-        id="id"
-        obj-model="obj: #tree-obj; mtl: #tree-mtl"
-        position="0 0 -300"
-        scale="1 1.5 1"
-      ></a-entity>
+      <a-entity camera look-controls>
+        <a-entity
+          id="id"
+          obj-model="obj: #tree-obj; mtl: #tree-mtl"
+          position="0 -100 -300"
+          scale="1 1.5 1"
+        ></a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
