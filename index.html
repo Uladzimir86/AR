@@ -7,12 +7,12 @@
     window.onload = function () {
       const el = document.querySelector("#id");
       document
-        .querySelector(".buttonUp")
+        .querySelector(".button__buttonUp")
         .addEventListener("click", function () {
           el.object3D.scale.multiplyScalar(1.1);
         });
       document
-        .querySelector(".buttonDown")
+        .querySelector(".button__buttonDown")
         .addEventListener("click", function () {
           el.object3D.scale.multiplyScalar(0.9);
         });
@@ -31,7 +31,7 @@
       z-index: 10;
     }
 
-    .say-hi-button {
+    .button {
       padding: 0.25em;
       border-radius: 4px;
       border: none;
@@ -43,8 +43,8 @@
   </style>
   <body style="margin: 0px; overflow: hidden">
     <div class="buttons">
-      <button class="buttonUp">Up</button>
-      <button class="buttonDown">DOWN</button>
+      <button class="button button__buttonUp">Up</button>
+      <button class="button button__buttonDown">DOWN</button>
     </div>
 
     <a-scene>
@@ -56,7 +56,8 @@
       <a-entity
         id="id"
         obj-model="obj: #tree-obj; mtl: #tree-mtl"
-        position="0 -80 -250"
+        position="0 -70 -300"
+        scale="1 1.5 1"
       ></a-entity>
     </a-scene>
   </body>
