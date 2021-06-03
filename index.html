@@ -12,7 +12,7 @@
     <script>
       window.onload = function () {
         const el = document.querySelector("#id");
-        el.object3D.scale.multiplyScalar(0.9);
+
         document
           .querySelector(".button__buttonUp")
           .addEventListener("click", function () {
@@ -120,14 +120,14 @@
         <a-asset-item id="tree-obj" src="./Table And Chairs.obj"></a-asset-item>
         <a-asset-item id="tree-mtl" src="./Table And Chairs.mtl"></a-asset-item>
       </a-assets>
-
-      <a-entity
-        id="id"
-        obj-model="obj: #tree-obj; mtl: #tree-mtl"
-        position="0 0 0"
-        scale="0.1 0.1 0.1"
-      ></a-entity>
-      <a-camera></a-camera>
+      <a-camera>
+        <a-entity
+          id="id"
+          obj-model="obj: #tree-obj; mtl: #tree-mtl"
+          position="0 -13 -40"
+          scale="0.1 0.2 0.1"
+        ></a-entity>
+      </a-camera>
     </a-scene>
   </body>
 </html>
