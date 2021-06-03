@@ -1,110 +1,120 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script>
-    window.onload = function () {
-      const el = document.querySelector("#id");
-      document
-        .querySelector(".button__buttonUp")
-        .addEventListener("click", function () {
-          el.object3D.scale.multiplyScalar(1.1);
-        });
-      document
-        .querySelector(".button__buttonDown")
-        .addEventListener("click", function () {
-          el.object3D.scale.multiplyScalar(0.9);
-        });
-      document
-        .querySelector(".button__rotate")
-        .addEventListener("click", function () {
-          el.object3D.rotation.y += Math.PI / 2;
-        });
-      document
-        .querySelector(".button__posx")
-        .addEventListener("click", function () {
-          el.object3D.position.x += 1;
-        });
-      document
-        .querySelector(".button__posx-")
-        .addEventListener("click", function () {
-          el.object3D.position.x -= 1;
-        });
-      document
-        .querySelector(".button__posy")
-        .addEventListener("click", function () {
-          el.object3D.position.y += 1;
-        });
-      document
-        .querySelector(".button__posy-")
-        .addEventListener("click", function () {
-          el.object3D.position.y -= 1;
-        });
-      document
-        .querySelector(".button__posz")
-        .addEventListener("click", function () {
-          el.object3D.position.z += 1;
-          console.log(el.object3D.position.z);
-        });
-      document
-        .querySelector(".button__posz-")
-        .addEventListener("click", function () {
-          el.object3D.position.z -= 1;
-        });
-    };
-  </script>
-  <style>
-    .buttons {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5em;
-      display: flex;
-      align-items: center;
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
 
-      padding-left: 3em;
-    }
-    .button__two {
-      display: flex;
-      flex-direction: column;
-    }
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script>
+      window.onload = function () {
+        const el = document.querySelector("#id");
+        el.object3D.scale.multiplyScalar(0.9);
+        document
+          .querySelector(".button__buttonUp")
+          .addEventListener("click", function () {
+            el.object3D.scale.multiplyScalar(1.1);
+          });
+        document
+          .querySelector(".button__buttonDown")
+          .addEventListener("click", function () {
+            el.object3D.scale.multiplyScalar(0.9);
+          });
+        document
+          .querySelector(".button__rotate")
+          .addEventListener("click", function () {
+            el.object3D.rotation.y += Math.PI / 2;
+          });
+        document
+          .querySelector(".button__posx")
+          .addEventListener("click", function () {
+            el.object3D.position.x += 1;
+          });
+        document
+          .querySelector(".button__posx-")
+          .addEventListener("click", function () {
+            el.object3D.position.x -= 1;
+          });
+        document
+          .querySelector(".button__posy")
+          .addEventListener("click", function () {
+            el.object3D.position.y += 1;
+          });
+        document
+          .querySelector(".button__posy-")
+          .addEventListener("click", function () {
+            el.object3D.position.y -= 1;
+          });
+        document
+          .querySelector(".button__posz")
+          .addEventListener("click", function () {
+            el.object3D.position.z += 1;
+            console.log(el.object3D.position.z);
+          });
+        document
+          .querySelector(".button__posz-")
+          .addEventListener("click", function () {
+            el.object3D.position.z -= 1;
+          });
+      };
+    </script>
+    <style>
+      .buttons {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60vw;
+        height: 5em;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-left: 3em;
+        margin-bottom: 1em;
+      }
+      .button__two {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
 
-    .button {
-      padding: 0.25em;
-      border-radius: 4px;
-      border: none;
-      background: white;
-      color: black;
-      width: 4em;
-      height: 2em;
-      margin: 1px;
-      z-index: 10;
-    }
-    .button:active {
-      opacity: 75%;
-    }
-  </style>
+      .button {
+        padding: 0.25em;
+        border-radius: 4px;
+        border: none;
+        background: white;
+        color: black;
+        width: 4em;
+        height: 2em;
+        margin: 1px;
+        z-index: 10;
+      }
+      .button:active {
+        opacity: 75%;
+      }
+    </style>
+  </head>
   <body style="margin: 0px; padding-top: 5em; overflow: hidden">
     <div class="buttons">
       <button class="button button__buttonUp" title="increase">+</button>
       <button class="button button__buttonDown" title="reduce">-</button>
       <button class="button button__rotate">rotate</button>
-    </div>
-    <div class="button__two">
-      <button class="button button__posx">x+</button>
-      <button class="button button__posx-">x-</button>
-    </div>
-    <div class="button__two">
-      <button class="button button__posy">y+</button>
-      <button class="button button__posy-">y-</button>
-    </div>
-    <div class="button__two">
-      <button class="button button__posz">z+</button>
-      <button class="button button__posz-">z-</button>
-    </div>
 
+      <div class="button__two">
+        <button class="button button__posx">x+</button>
+        <button class="button button__posx-">x-</button>
+      </div>
+      <div class="button__two">
+        <button class="button button__posy">y+</button>
+        <button class="button button__posy-">y-</button>
+      </div>
+      <div class="button__two">
+        <button class="button button__posz">z+</button>
+        <button class="button button__posz-">z-</button>
+      </div>
+    </div>
     <a-scene>
       <a-assets>
         <a-asset-item id="tree-obj" src="./Table And Chairs.obj"></a-asset-item>
