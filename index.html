@@ -21,6 +21,37 @@
         .addEventListener("click", function () {
           el.object3D.rotation.y += Math.PI / 2;
         });
+      document
+        .querySelector(".button__posx")
+        .addEventListener("click", function () {
+          el.object3D.position.x += 1;
+        });
+      document
+        .querySelector(".button__posx-")
+        .addEventListener("click", function () {
+          el.object3D.position.x -= 1;
+        });
+      document
+        .querySelector(".button__posy")
+        .addEventListener("click", function () {
+          el.object3D.position.y += 1;
+        });
+      document
+        .querySelector(".button__posy-")
+        .addEventListener("click", function () {
+          el.object3D.position.y -= 1;
+        });
+      document
+        .querySelector(".button__posz")
+        .addEventListener("click", function () {
+          el.object3D.position.z += 1;
+          console.log(el.object3D.position.z);
+        });
+      document
+        .querySelector(".button__posz-")
+        .addEventListener("click", function () {
+          el.object3D.position.z -= 1;
+        });
     };
   </script>
   <style>
@@ -32,8 +63,12 @@
       height: 5em;
       display: flex;
       align-items: center;
-      z-index: 10;
+
       padding-left: 3em;
+    }
+    .button__two {
+      display: flex;
+      flex-direction: column;
     }
 
     .button {
@@ -45,13 +80,29 @@
       width: 4em;
       height: 2em;
       margin: 1px;
+      z-index: 10;
+    }
+    .button:active {
+      opacity: 75%;
     }
   </style>
-  <body style="margin: 0px; overflow: hidden">
+  <body style="margin: 0px; padding-top: 5em; overflow: hidden">
     <div class="buttons">
       <button class="button button__buttonUp" title="increase">+</button>
       <button class="button button__buttonDown" title="reduce">-</button>
       <button class="button button__rotate">rotate</button>
+    </div>
+    <div class="button__two">
+      <button class="button button__posx">x+</button>
+      <button class="button button__posx-">x-</button>
+    </div>
+    <div class="button__two">
+      <button class="button button__posy">y+</button>
+      <button class="button button__posy-">y-</button>
+    </div>
+    <div class="button__two">
+      <button class="button button__posz">z+</button>
+      <button class="button button__posz-">z-</button>
     </div>
 
     <a-scene>
@@ -63,7 +114,7 @@
       <a-entity
         id="id"
         obj-model="obj: #tree-obj; mtl: #tree-mtl"
-        position="0 -5 10"
+        position="0 0 0"
         scale="0.1 0.1 0.1"
       ></a-entity>
       <a-camera></a-camera>
